@@ -119,5 +119,7 @@ test_suite(
         ":check-yaml",
         ":check-circular-dependencies",
         # ":check-sdl",
+
+        ":test-unit",
     ],
 )
