@@ -592,6 +592,8 @@ def _npm_test_impl(
         ExternalRunnerTestInfo(
             type = test_info_type,
             command = [run_cmd_args],
+            env = ctx.attrs.env,
+            labels = ctx.attrs.labels,
         ),
     ) + [
         DefaultInfo(default_output = args_file),
@@ -639,6 +641,18 @@ _eslint = rule(
         ),
         "node_modules": attrs.source(
             doc = """Target which builds `node_modules`.""",
+        ),
+        "env": attrs.dict(
+            key = attrs.string(),
+            value = attrs.arg(),
+            sorted = False,
+            default = {},
+            doc = """Set environment variables for this rule's invocation of eslint. The environment
+            variable values may include macros which are expanded.""",
+        ),
+        "labels": attrs.list(
+            attrs.string(),
+            default = [],
         ),
         "_inject_test_env": attrs.default_only(
             attrs.dep(default = "prelude//test/tools:inject_test_env"),
@@ -708,6 +722,18 @@ _typescript_check = rule(
         "node_modules": attrs.source(
             doc = """Target which builds package `node_modules`.""",
         ),
+        "env": attrs.dict(
+            key = attrs.string(),
+            value = attrs.arg(),
+            sorted = False,
+            default = {},
+            doc = """Set environment variables for this rule's invocation of tsc. The environment
+            variable values may include macros which are expanded.""",
+        ),
+        "labels": attrs.list(
+            attrs.string(),
+            default = [],
+        ),
         "_inject_test_env": attrs.default_only(
             attrs.dep(default = "prelude//test/tools:inject_test_env"),
         ),
@@ -770,6 +796,18 @@ _yaml_check = rule(
         ),
         "node_modules": attrs.source(
             doc = """Target which builds package `node_modules`.""",
+        ),
+        "env": attrs.dict(
+            key = attrs.string(),
+            value = attrs.arg(),
+            sorted = False,
+            default = {},
+            doc = """Set environment variables for this rule's invocation of prettier. The environment
+            variable values may include macros which are expanded.""",
+        ),
+        "labels": attrs.list(
+            attrs.string(),
+            default = [],
         ),
         "_inject_test_env": attrs.default_only(
             attrs.dep(default = "prelude//test/tools:inject_test_env"),
@@ -836,6 +874,18 @@ _madge_check = rule(
         "node_modules": attrs.source(
             doc = """Target which builds package `node_modules`.""",
         ),
+        "env": attrs.dict(
+            key = attrs.string(),
+            value = attrs.arg(),
+            sorted = False,
+            default = {},
+            doc = """Set environment variables for this rule's invocation of madge. The environment
+            variable values may include macros which are expanded.""",
+        ),
+        "labels": attrs.list(
+            attrs.string(),
+            default = [],
+        ),
         "_inject_test_env": attrs.default_only(
             attrs.dep(default = "prelude//test/tools:inject_test_env"),
         ),
@@ -863,6 +913,87 @@ def madge_check(
 
     _madge_check(
         madge = ":{}".format(madge_bin),
+        node_modules = node_modules,
+        visibility = visibility,
+        **kwargs,
+    )
+
+def test_unit_impl(ctx: AnalysisContext) -> list[[
+    DefaultInfo,
+    RunInfo,
+    ExternalRunnerTestInfo,
+]]:
+    args = cmd_args()
+    args.add("--config")
+    args.add(ctx.attrs.config_file)
+    args.add("--bail")
+    args.add("--verbose")
+
+    return _npm_test_impl(
+        ctx,
+        ctx.attrs.jest[RunInfo],
+        args,
+        "jest",
+    )
+
+_test_unit = rule(
+    impl = test_unit_impl,
+    attrs = {
+        "srcs": attrs.list(
+            attrs.source(),
+            default = [],
+            doc = """List of package source files to track.""",
+        ),
+        "jest": attrs.dep(
+            providers = [RunInfo],
+            doc = """jest dependency.""",
+        ),
+        "config_file": attrs.option(
+            attrs.string(),
+            doc = """File name and relative path for jest config.""",
+        ),
+        "env": attrs.dict(
+            key = attrs.string(),
+            value = attrs.arg(),
+            sorted = False,
+            default = {},
+            doc = """Set environment variables for this rule's invocation of jest. The environment
+            variable values may include macros which are expanded.""",
+        ),
+        "labels": attrs.list(
+            attrs.string(),
+            default = [],
+        ),
+        "node_modules": attrs.source(
+            doc = """Target which builds package `node_modules`.""",
+        ),
+        "_inject_test_env": attrs.default_only(
+            attrs.dep(default = "prelude//test/tools:inject_test_env"),
+        ),
+        "_python_toolchain": attrs.toolchain_dep(
+            default = "toolchains//:python",
+            providers = [PythonToolchainInfo],
+        ),
+        "_workspace_pnpm_toolchain": attrs.toolchain_dep(
+            default = "toolchains//:workspace_pnpm",
+            providers = [WorkspacePnpmToolchainInfo],
+        ),
+    },
+)
+
+def test_unit(
+        node_modules = ":node_modules",
+        visibility = ["PUBLIC"],
+        **kwargs):
+    jest_bin = "jest_bin"
+    if not rule_exists(jest_bin):
+        npm_bin(
+            name = jest_bin,
+            bin_name = "jest",
+        )
+
+    _test_unit(
+        jest = ":{}".format(jest_bin),
         node_modules = node_modules,
         visibility = visibility,
         **kwargs,
