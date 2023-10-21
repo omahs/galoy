@@ -190,7 +190,7 @@
     "zen-observable-ts": "^1.1.0"
   },
   "resolutions": {
-    "protobufjs": "7.2.5",
+    "protobufjs": "^7.2.5",
     "http-cache-semantics": "4.1.1",
     "import-in-the-middle": "1.4.2",
     "@babel/core": "^7.23.2",
