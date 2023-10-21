@@ -118,6 +118,7 @@
     "@apollo/rover": "^0.20.0",
     "@babel/core": "^7.23.2",
     "@babel/preset-env": "^7.23.2",
+    "@galoy/eslint-config": "workspace:^",
     "@graphql-tools/jest-transform": "^2.0.0",
     "@jest/test-sequencer": "^29.7.0",
     "@swc/core": "1.3.93",

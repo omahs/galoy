@@ -73,11 +73,16 @@ runnable_tsc_build_bin(
   run_file = "servers/graphql-main-server.js",
 )
 
+dev_deps_srcs = {
+    "lib/eslint-config": "//lib/eslint-config:src",
+}
+
 eslint(
     name = "check-lint",
     srcs = [":src"] + [":test_src"] + glob([".eslint*"]),
     extensions = [".ts"],
     allow_warnings = True,
+    dev_deps_srcs = dev_deps_srcs,
 )
 
 typescript_check(

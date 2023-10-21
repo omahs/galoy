@@ -474,6 +474,9 @@ importers:
       '@babel/preset-env':
         specifier: ^7.23.2
         version: 7.23.2(@babel/core@7.23.2)
+      '@galoy/eslint-config':
+        specifier: workspace:^
+        version: link:../../lib/eslint-config
       '@graphql-tools/jest-transform':
         specifier: ^2.0.0
         version: 2.0.0(graphql@16.8.1)
