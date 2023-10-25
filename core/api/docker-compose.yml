@@ -114,12 +114,12 @@ services:
       - POSTGRES_PASSWORD=galoy-price-pwd
       - POSTGRES_DB=galoy-price-history
   bitcoind:
-    image: lncm/bitcoind:v24.0.1
+    image: lncm/bitcoind:v25.1
     ports: []
     volumes:
       - ${HOST_PROJECT_PATH:-.}/dev/bitcoind/bitcoin.conf:/data/.bitcoin/bitcoin.conf
   bitcoind-signer:
-    image: lncm/bitcoind:v24.0.1
+    image: lncm/bitcoind:v25.1
     ports: []
     volumes:
       - ${HOST_PROJECT_PATH:-.}/dev/bitcoind/bitcoin.conf:/data/.bitcoin/bitcoin.conf
@@ -129,7 +129,7 @@ services:
       - |
         bitcoind -connect=bitcoind:18444
   lnd1:
-    image: lightninglabs/lnd:v0.16.2-beta
+    image: lightninglabs/lnd:v0.17.0-beta
     ports: []
     volumes:
       - ${HOST_PROJECT_PATH:-.}/dev/lnd/lnd.conf:/root/.lnd/lnd.conf
@@ -148,7 +148,7 @@ services:
         cp /root/.lnd/admin.macaroon /root/.lnd/data/chain/bitcoin/regtest/admin.macaroon
         /bin/lnd
   lnd2:
-    image: lightninglabs/lnd:v0.16.2-beta
+    image: lightninglabs/lnd:v0.17.0-beta
     ports: []
     volumes:
       - ${HOST_PROJECT_PATH:-.}/dev/lnd/lnd.conf:/root/.lnd/lnd.conf
@@ -167,7 +167,7 @@ services:
         cp /root/.lnd/admin.macaroon /root/.lnd/data/chain/bitcoin/regtest/admin.macaroon
         /bin/lnd
   lnd-outside-1:
-    image: lightninglabs/lnd:v0.16.2-beta
+    image: lightninglabs/lnd:v0.17.0-beta
     ports: []
     volumes:
       - ${HOST_PROJECT_PATH:-.}/dev/lnd/lnd.conf:/root/.lnd/lnd.conf
@@ -186,7 +186,7 @@ services:
         /bin/lnd
     depends_on: [bitcoind]
   lnd-outside-2:
-    image: lightninglabs/lnd:v0.16.2-beta
+    image: lightninglabs/lnd:v0.17.0-beta
     ports: []
     volumes:
       - ${HOST_PROJECT_PATH:-.}/dev/lnd/lnd.conf:/root/.lnd/lnd.conf
