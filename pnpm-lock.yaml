@@ -113,8 +113,8 @@ importers:
         specifier: ^4.0.1
         version: 4.0.1(graphql@16.8.1)
       '@graphql-codegen/typescript-react-apollo':
-        specifier: ^4.0.0
-        version: 4.0.0(graphql-tag@2.12.6)(graphql@16.8.1)
+        specifier: ^4.1.0
+        version: 4.1.0(graphql-tag@2.12.6)(graphql@16.8.1)
       '@types/node':
         specifier: 20.8.9
         version: 20.8.9
@@ -249,8 +249,8 @@ importers:
         specifier: ^4.0.1
         version: 4.0.1(graphql@16.8.1)
       '@graphql-codegen/typescript-react-apollo':
-        specifier: ^4.0.0
-        version: 4.0.0(graphql-tag@2.12.6)(graphql@16.8.1)
+        specifier: ^4.1.0
+        version: 4.1.0(graphql-tag@2.12.6)(graphql@16.8.1)
       '@graphql-codegen/typescript-resolvers':
         specifier: ^4.0.1
         version: 4.0.1(graphql@16.8.1)
@@ -418,7 +418,7 @@ importers:
         version: 5.14.1(graphql@16.8.1)
       gt3-server-node-express-sdk:
         specifier: git+https://github.com/GaloyMoney/gt3-server-node-express-bypass.git#master
-        version: github.com/GaloyMoney/gt3-server-node-express-bypass/6559a1a39ef408de3aefa6321934c831edac001e
+        version: git@github.com+GaloyMoney/gt3-server-node-express-bypass/6559a1a39ef408de3aefa6321934c831edac001e
       i18n:
         specifier: ^0.15.1
         version: 0.15.1
@@ -1074,7 +1074,7 @@ packages:
       '@babel/generator': 7.23.0
       '@babel/parser': 7.23.0
       '@babel/runtime': 7.23.2
-      '@babel/traverse': 7.23.0
+      '@babel/traverse': 7.23.2
       '@babel/types': 7.23.0
       babel-preset-fbjs: 3.4.0(@babel/core@7.23.2)
       chalk: 4.1.2
@@ -1109,14 +1109,9 @@ packages:
       '@babel/highlight': 7.22.20
       chalk: 2.4.2
 
-  /@babel/compat-data@7.22.20:
-    resolution: {integrity: sha512-BQYjKbpXjoXwFW5jGqiizJQQT/aC7pFm9Ok1OWssonuguICi264lbgMzRp2ZMmRSlfkX6DsWDDcsrctK8Rwfiw==}
-    engines: {node: '>=6.9.0'}
-
   /@babel/compat-data@7.23.2:
     resolution: {integrity: sha512-0S9TQMmDHlqAZ2ITT95irXKfxN9bncq8ZCoJhun3nHL/lLUxd2NKBJYoNGWH7S0hz6fRQwWlAWn/ILM0C70KZQ==}
     engines: {node: '>=6.9.0'}
-    dev: true
 
   /@babel/core@7.22.8:
     resolution: {integrity: sha512-75+KxFB4CZqYRXjx4NlR4J7yGvKumBuZTmV4NV6v09dVXXkuYVYLT68N6HCzLvfJ+fWCxQsntNzKwwIXL4bHnw==}
@@ -1127,10 +1122,10 @@ packages:
       '@babel/generator': 7.23.0
       '@babel/helper-compilation-targets': 7.22.15
       '@babel/helper-module-transforms': 7.23.0(@babel/core@7.22.8)
-      '@babel/helpers': 7.23.1
+      '@babel/helpers': 7.23.2
       '@babel/parser': 7.23.0
       '@babel/template': 7.22.15
-      '@babel/traverse': 7.23.0
+      '@babel/traverse': 7.23.2
       '@babel/types': 7.23.0
       '@nicolo-ribaudo/semver-v6': 6.3.3
       convert-source-map: 1.9.0
@@ -1190,7 +1185,7 @@ packages:
     resolution: {integrity: sha512-y6EEzULok0Qvz8yyLkCvVX+02ic+By2UdOhylwUOvOn9dvYc9mKICJuuU1n1XBI02YWsNsnrY1kc6DVbjcXbtw==}
     engines: {node: '>=6.9.0'}
     dependencies:
-      '@babel/compat-data': 7.22.20
+      '@babel/compat-data': 7.23.2
       '@babel/helper-validator-option': 7.22.15
       browserslist: 4.22.1
       lru-cache: 5.1.1
@@ -1374,17 +1369,6 @@ packages:
       '@babel/types': 7.23.0
     dev: true
 
-  /@babel/helpers@7.23.1:
-    resolution: {integrity: sha512-chNpneuK18yW5Oxsr+t553UZzzAs3aZnFm4bxhebsNTeshrC95yA7l5yl7GBAG+JG1rF0F7zzD2EixK9mWSDoA==}
-    engines: {node: '>=6.9.0'}
-    dependencies:
-      '@babel/template': 7.22.15
-      '@babel/traverse': 7.23.0
-      '@babel/types': 7.23.0
-    transitivePeerDependencies:
-      - supports-color
-    dev: true
-
   /@babel/helpers@7.23.2:
     resolution: {integrity: sha512-lzchcp8SjTSVe/fPmLwtWVBFC7+Tbn8LGHDVfDp9JGxpAY5opSaEFgt8UQvrnECWOTdji2mOWMz1rOhkHscmGQ==}
     engines: {node: '>=6.9.0'}
@@ -1451,7 +1435,7 @@ packages:
     peerDependencies:
       '@babel/core': ^7.0.0-0
     dependencies:
-      '@babel/compat-data': 7.22.20
+      '@babel/compat-data': 7.23.2
       '@babel/core': 7.23.2
       '@babel/helper-compilation-targets': 7.22.15
       '@babel/helper-plugin-utils': 7.22.5
@@ -2380,24 +2364,6 @@ packages:
       '@babel/parser': 7.23.0
       '@babel/types': 7.23.0
 
-  /@babel/traverse@7.23.0:
-    resolution: {integrity: sha512-t/QaEvyIoIkwzpiZ7aoSKK8kObQYeF7T2v+dazAYCb8SXtp58zEVkWW7zAnju8FNKNdr4ScAOEDmMItbyOmEYw==}
-    engines: {node: '>=6.9.0'}
-    dependencies:
-      '@babel/code-frame': 7.22.13
-      '@babel/generator': 7.23.0
-      '@babel/helper-environment-visitor': 7.22.20
-      '@babel/helper-function-name': 7.23.0
-      '@babel/helper-hoist-variables': 7.22.5
-      '@babel/helper-split-export-declaration': 7.22.6
-      '@babel/parser': 7.23.0
-      '@babel/types': 7.23.0
-      debug: 4.3.4(supports-color@8.1.1)
-      globals: 11.12.0
-    transitivePeerDependencies:
-      - supports-color
-    dev: true
-
   /@babel/traverse@7.23.2:
     resolution: {integrity: sha512-azpe59SQ48qG6nu2CzcMLbxUudtN+dOM9kDbUqGq3HXUJRlo7i8fvPoxQUzYgLZ4cMVmuZgm8vvBpNeRhd6XSw==}
     engines: {node: '>=6.9.0'}
@@ -3076,8 +3042,8 @@ packages:
       - supports-color
     dev: true
 
-  /@graphql-codegen/typescript-react-apollo@4.0.0(graphql-tag@2.12.6)(graphql@16.8.1):
-    resolution: {integrity: sha512-XDaZdciZ4216RyV/7HphaAP32oeqlHZbgyXUzpA8TQDu/dmgzCN0gapZU6xAQnZe+hiec+e7DLSu9AKBy55b2w==}
+  /@graphql-codegen/typescript-react-apollo@4.1.0(graphql-tag@2.12.6)(graphql@16.8.1):
+    resolution: {integrity: sha512-G7l4ECoilGnW1zJeqgsFQEVup9ME3w3811ZxHP5yvTra3ZNsbZO4WbYBOPKyS5uc4swsTAxj70a28hNF7kdVcw==}
     engines: {node: '>= 16.0.0'}
     peerDependencies:
       graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
@@ -3768,7 +3734,7 @@ packages:
     dependencies:
       '@babel/parser': 7.23.0
       '@babel/plugin-syntax-import-assertions': 7.22.5(@babel/core@7.22.8)
-      '@babel/traverse': 7.23.0
+      '@babel/traverse': 7.23.2
       '@babel/types': 7.23.0
       '@graphql-tools/utils': 10.0.6(graphql@16.8.1)
       graphql: 16.8.1
@@ -3786,7 +3752,7 @@ packages:
     dependencies:
       '@babel/parser': 7.23.0
       '@babel/plugin-syntax-import-assertions': 7.22.5(@babel/core@7.23.2)
-      '@babel/traverse': 7.23.0
+      '@babel/traverse': 7.23.2
       '@babel/types': 7.23.0
       '@graphql-tools/utils': 10.0.6(graphql@16.8.1)
       graphql: 16.8.1
@@ -3805,7 +3771,7 @@ packages:
       '@babel/core': 7.23.2
       '@babel/parser': 7.23.0
       '@babel/plugin-syntax-import-assertions': 7.22.5(@babel/core@7.23.2)
-      '@babel/traverse': 7.23.0
+      '@babel/traverse': 7.23.2
       '@babel/types': 7.23.0
       '@graphql-tools/utils': 10.0.6(graphql@16.8.1)
       graphql: 16.8.1
@@ -18037,8 +18003,8 @@ packages:
     resolution: {integrity: sha512-iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg==}
     dev: false
 
-  github.com/GaloyMoney/gt3-server-node-express-bypass/6559a1a39ef408de3aefa6321934c831edac001e:
-    resolution: {tarball: https://codeload.github.com/GaloyMoney/gt3-server-node-express-bypass/tar.gz/6559a1a39ef408de3aefa6321934c831edac001e}
+  git@github.com+GaloyMoney/gt3-server-node-express-bypass/6559a1a39ef408de3aefa6321934c831edac001e:
+    resolution: {commit: 6559a1a39ef408de3aefa6321934c831edac001e, repo: git@github.com:GaloyMoney/gt3-server-node-express-bypass.git, type: git}
     name: gt3-server-node-express-sdk
     version: 3.1.0
     dependencies:
